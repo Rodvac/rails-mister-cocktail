@@ -1,15 +1,25 @@
 <div class="container">
-  <h1>My fav cocktails</h1>
-    <ul></ul>
+  <div class="index-title">
+    <h1>My fav cocktails</h1>
+  </div>
+  <div class="cards">
       <% @cocktails.each do |cocktail| %>
-        <li><%= link_to cocktail.name, cocktail_path(cocktail) %>
-            | <%= link_to "Delete", cocktail_path(cocktail), method: :delete, data: {confirm: "Are you sure?"} %>
-        </li>
+        <div class="card" style="width: 18rem;">
+          <%= image_tag "mojito.jpeg", class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= cocktail.name %></h5>
+            <% cocktail.doses.each do |dose| %>
+              <p><%= dose.ingredient.name %></p>
+            <% end %>
+            <p><%= link_to 'See more', cocktail_path(cocktail), :class => 'btn btn-primary' %><p>
+          </div>
+        </div>
       <% end %>
-    </ul>
-  <br>
-  <p><%= link_to 'Add a cocktail', new_cocktail_path%></p>
+  </div>
 </div>
+
+
+
 
 
 

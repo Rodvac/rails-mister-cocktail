@@ -1,5 +1,7 @@
 <div class="container">
-  <h1><%= @cocktail.name %></h1>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+    <h1><%= @cocktail.name %></h1>
+  </div>
   <h5><strong>Doses: </strong></h5>
   <ul>
     <% @cocktail.doses.each do |dose| %>
@@ -8,4 +10,9 @@
   </ul>
   <p><%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail) %></p>
   <p><%= link_to 'Back to cocktails list', cocktails_path %></p>
+  <p><%= link_to "Delete", cocktail_path, method: :delete, data: {confirm: "Are you sure?"} %></p>
 </div>
+
+
+
+
